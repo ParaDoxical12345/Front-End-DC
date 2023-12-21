@@ -6,15 +6,15 @@
           <div class="card-body">
             <div class="mb-3">
               <label for="paymentamount" class="form-label">Amount: </label>
-              <input v-model="paymentamount" type="number" class="form-control" id="paymentamount" placeholder="Amount">
+              <input v-model="paymentamount" type="number" class="form-control" id="paymentamount" placeholder="Amount" required>
             </div>
             <div class="mb-3">
               <label for="paymentdescription" class="form-label">Description: </label>
-              <input v-model="paymentdescription" type="text" class="form-control" id="paymentdescription" placeholder="Description">
+              <input v-model="paymentdescription" type="text" class="form-control" id="paymentdescription" placeholder="Description" required>
             </div>
             <div class="mb-3">
               <label for="paymentdate" class="form-label">Date: </label>
-              <input v-model="paymentdate" type="date" class="form-control" id="paymentdate">
+              <input v-model="paymentdate" type="date" class="form-control" id="paymentdate" required>
             </div>
             <button @click="paynow" class="btn btn-success">Pay now</button>
           </div>
@@ -22,6 +22,24 @@
       </div>
       <div class="bill-container">
         <h1 class="text text-center bg-success rounded">BILLS</h1>
+        <div class="card" style="width: 15rem; margin: 1rem; height: fit-content;">
+          <div class="card-body">
+            <h5>Add New Bill</h5>
+            <div class="mb-2">
+              <label for="addbillamount" class="form-label">Amount: </label>
+              <input v-model="addbillamount" type="number" class="form-control" id="addbillamount" placeholder="Amount: " required>
+            </div>
+            <div class="mb-2">
+              <label for="addbilldescription" class="form-label">Description: </label>
+              <input v-model="addbilldescription" type="text" class="form-control" id="addbilldescription" placeholder="Description: " required>
+            </div>
+            <div class="mb-2">
+              <label for="addbilldate" class="form-label">Due Date: </label>
+              <input v-model="addbilldate" type="date" class="form-control" id="addbilldate" required>
+            </div>
+            <button  @click="addbills" class="btn btn-success">Add Bill</button>
+          </div>
+        </div>
         <div class="bills" v-for="(bill, index) in bills" :key="bill.id">
           <div class="card" style="width: 15rem; margin: 1rem; height: fit-content;" v-if="bill.amount > 0">
             <div class="card-body">
@@ -33,27 +51,35 @@
             </div>
           </div>
         </div>
-        <div class="card" style="width: 15rem; margin: 1rem; height: fit-content;">
-          <div class="card-body">
-            <h5>Add New Bill</h5>
-            <div class="mb-2">
-              <label for="addbillamount" class="form-label">Amount: </label>
-              <input v-model="addbillamount" type="number" class="form-control" id="addbillamount" placeholder="Amount: ">
-            </div>
-            <div class="mb-2">
-              <label for="addbilldescription" class="form-label">Description: </label>
-              <input v-model="addbilldescription" type="text" class="form-control" id="addbilldescription" placeholder="Description: ">
-            </div>
-            <div class="mb-2">
-              <label for="addbilldate" class="form-label">Due Date: </label>
-              <input v-model="addbilldate" type="date" class="form-control" id="addbilldate">
-            </div>
-            <button  @click="addbills" class="btn btn-success">Add Bill</button>
-          </div>
-        </div>
       </div>
       <div class="liabilities-container">
         <h1 class="text text-center bg-success rounded p-3 py-0">LIABILITIES TO PAY</h1>
+        <div class="card" style="width: 15rem; margin: 1rem; height: fit-content;">
+          <div class="card-body">
+            <h5>Add New Liabilities to pay</h5>
+            <div class="mb-2">
+              <label for="addliabilityamount" class="form-label">Amount: </label>
+              <input v-model="addliabilityamount" type="number" class="form-control" id="addliabilityamount" placeholder="Amount: " required>
+            </div>
+            <div class="mb-2">
+              <label for="addliabilitydescription" class="form-label">Description: </label>
+              <input v-model="addliabilitydescription" type="text" class="form-control" id="addliabilitydescription" placeholder="Description: " required>
+            </div>
+            <div class="mb-2">
+              <label for="addliabilitydate" class="form-label">Due Date: </label>
+              <input v-model="addliabilitydate" type="date" class="form-control" id="addliabilitydate" required>
+            </div>
+            <div class="mb-2">
+              <label for="addliabilitystart" class="form-label">Due Date: </label>
+              <input v-model="addliabilitystart" type="date" class="form-control" id="addliabilitystart" required>
+            </div>
+            <div class="mb-2">
+              <label for="addliabilityend" class="form-label">Due Date: </label>
+              <input v-model="addliabilityend" type="date" class="form-control" id="addliabilityend" required>
+            </div>
+            <button @click="addliabilities" class="btn btn-success">Add Liabilities</button>
+          </div>
+        </div>
         <div class="liabilities" v-for="(liability, index1) in liabilities" :key="liability.id">
           <div class="card" style="width: 15rem; margin: 1rem; height: fit-content;">
             <div class="card-body">
@@ -68,32 +94,7 @@
             </div>
           </div>
         </div>
-        <div class="card" style="width: 15rem; margin: 1rem; height: fit-content;">
-          <div class="card-body">
-            <h5>Add New Liabilities to pay</h5>
-            <div class="mb-2">
-              <label for="addliabilityamount" class="form-label">Amount: </label>
-              <input v-model="addliabilityamount" type="number" class="form-control" id="addliabilityamount" placeholder="Amount: ">
-            </div>
-            <div class="mb-2">
-              <label for="addliabilitydescription" class="form-label">Description: </label>
-              <input v-model="addliabilitydescription" type="text" class="form-control" id="addliabilitydescription" placeholder="Description: ">
-            </div>
-            <div class="mb-2">
-              <label for="addliabilitydate" class="form-label">Due Date: </label>
-              <input v-model="addliabilitydate" type="date" class="form-control" id="addliabilitydate">
-            </div>
-            <div class="mb-2">
-              <label for="addliabilitystart" class="form-label">Due Date: </label>
-              <input v-model="addliabilitystart" type="date" class="form-control" id="addliabilitystart">
-            </div>
-            <div class="mb-2">
-              <label for="addliabilityend" class="form-label">Due Date: </label>
-              <input v-model="addliabilityend" type="date" class="form-control" id="addliabilityend">
-            </div>
-            <button @click="addliabilities" class="btn btn-success">Add Liabilities</button>
-          </div>
-        </div>
+        
       </div>
     </div>
 </template>

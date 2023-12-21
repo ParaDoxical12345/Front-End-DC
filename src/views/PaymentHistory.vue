@@ -15,7 +15,7 @@
           </tbody>
       </table>
   </div>
-  </template>
+</template>
 
 <script>
   import { ref, onMounted, onErrorCaptured } from 'vue';

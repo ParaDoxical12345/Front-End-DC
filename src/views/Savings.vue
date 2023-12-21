@@ -37,11 +37,11 @@
         <div class="card-body">
           <div class="mb-3">
             <label for="incomeAmount" class="form-label">Amount: </label>
-            <input v-model="incomeAmount" type="number" class="form-control" id="incomeAmount" placeholder="&#8369">
+            <input v-model="incomeAmount" type="number" class="form-control" id="incomeAmount" placeholder="&#8369" required>
           </div>
           <div class="mb-3">
             <label for="incomeDate" class="form-label">Date: </label>
-            <input v-model="incomeDate" type="date" class="form-control" id="incomeDate">
+            <input v-model="incomeDate" type="date" class="form-control" id="incomeDate" required>
           </div>
         </div>
         <button @click="addIncome" class="btn btn-primary">Add Income</button>
@@ -51,11 +51,11 @@
         <div class="card-body">
           <div class="mb-3">
             <label for="additionalIncomeAmount" class="form-label">Amount: </label>
-            <input v-model="additionalIncomeAmount" type="number" class="form-control" id="additionalIncomeAmount" placeholder="&#8369">
+            <input v-model="additionalIncomeAmount" type="number" class="form-control" id="additionalIncomeAmount" placeholder="&#8369" required>
           </div>
           <div class="mb-3">
             <label for="additionalIncomeDate" class="form-label">Date: </label>
-            <input v-model="additionalIncomeDate" type="date" class="form-control" id="additionalIncomeDate">
+            <input v-model="additionalIncomeDate" type="date" class="form-control" id="additionalIncomeDate" required>
           </div>
         </div>
         <button @click="additionalIncome" class="btn btn-primary">Add Income</button>
